@@ -1,0 +1,117 @@
+/* STYLE */
+
+
+*{
+    margin:0;
+    padding:0;
+}
+#overlay-body{
+    opacity: .4;
+    height: 900px;
+    width: 1600px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+#body{
+    /* background-image: url("../images/spooky_forest.jpg"); */
+    background-image: url("../images/spooky_forest.png");
+    background-size: 1600px 900px;
+    opacity: 1;
+    background-repeat: none;
+    background-color: darkgray;
+}
+.container{
+    width: 100%;
+}
+header{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+    color: #bbb;
+    font-weight: bold;
+    width: auto;
+    height: 100px;
+    opacity: 1;
+    background-image: url("../images/stone_header.png");
+}
+#game-explain{
+    opacity: 1;
+}
+#main-select-area, #main-attack-area, #main-defend-area, #btm-select-area, #btm-attack-area, #btm-defend-area {
+    width: 33.3%;
+    background-color: transparent;
+}
+#main-visual-area, #main-select-area, #main-attack-area, #main-defend-area{
+    height: 600px;
+}
+.ghost-holder{
+    position: absolute;
+}
+.ghost-body{
+    opacity: .7;
+    height: 300px;
+    position: relative;
+    top: 500px;
+    left: 250px;
+    z-index: 9;
+}
+.ghost-weap{
+    transform: rotate(20deg);
+    opacity:.9;
+    height: 150px;
+    position: relative;
+    top:70px;
+    left:130px;
+    z-index: 2;
+}
+.ghost-shield{
+    opacity:.9;
+    height: 150px;
+    position: relative;
+    top:100px;
+    left:5px;
+    z-index: 3;
+}
+
+
+/* #ghost1{
+    opacity: .5;
+} */
+
+
+
+.hidethis{
+    visibility: hidden;
+}
+
+.trans{
+    background-color: transparent;
+}
+
+
+.btn{
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    padding: 15px;
+    opacity: .6;
+    border-style: none;
+    float: center;
+    margin: 0px;
+}
+#btn-select-ghost{
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    padding: 15px;
+    opacity: .6;
+    border-style: none;
+    float: center;
+    margin: 0px;
+}
+#StoneHead{
+    position: relative;
+    top: -200px;
+
+}
