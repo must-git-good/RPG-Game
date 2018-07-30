@@ -4,6 +4,7 @@
 
 //DECLARE GLOBAL VARIABLES
     var ghostBtn = $(".selectghostbtn");
+    var happens = $(".body");
     var ghostFightBtn = $("#btn-fight");
     var newGameBtn = $("#btn-reset");
     var ghostSelected = $(".ghost-holder");
@@ -71,18 +72,6 @@ function initializeGame(){
     defendersKilled = 0;
 };
 
-// function defenderIsDead(){
-//     if (defendGhost.hitPoints <= 0){
-//         console.log(this);
-//     }
-// };
-
-// function attackerIsDead(){
-//     if (attackGhost.hitPoints <= 0){
-//         return(true);
-//         //do defender dead things
-//     }
-// };
 
 function assignDeathStatus(){
     if (attackGhost.hitPoints <= 0) {
@@ -130,11 +119,12 @@ $(document).ready(function() {
     newGameBtn.attr("style", "visibility: hidden;");
     ghostFightBtn.attr("style", "visibility: hidden;");
 
+    
+  
+
+
 
     ghostBtn.on("click", function(){
-        // console.log(this);
-        // console.log( $(this).val());
-        // console.log("Have they been assigned?" + attackGhost + defendGhost)
         if (attackerAssigned === false){
         currentClick  = $(this).val();
         assignAttackGhost();
@@ -146,7 +136,7 @@ $(document).ready(function() {
         ghostBtn.attr("style", "visibility: hidden;");
         }
 
-        console.log("Now they have been assigned!" + attackGhost + defendGhost)
+        console.log("Both have been assigned now:" + attackGhost + defendGhost)
     });
 
     ghostFightBtn.on("click", function(){                        //on the click of a ghost selector button
@@ -172,6 +162,27 @@ $(document).ready(function() {
         console.log("A new game has started");
         //reset visual elements
     });
+//////////////////////////////////////////////////////////////////////////
+    console.log("TEXT AT STARTUP.")
+    
+    document.querySelector("#welcome_text").textContent = "WELCOME TO OUR GRAVEYARD";
+    //do other opening instructions
+    setTimeout(function () {
+
+    }, 5000);
+
+////////////////////////////////////////////////////////////////////////
+
+
+    // if (arraysEqual(emptyWord, spelledWord) === true) {            //Check to see if we have won...
+    //     console.log("VICTORY Condition Met");
+
+
+    // setTimeout(function () {
+    //     alert("Your guess of " + theAnswer + " was correct! Congratulations! Play again...?");
+    //     location = location;
+    // }, 400);
+
 
 
 });  // END OF MAIN SECTION

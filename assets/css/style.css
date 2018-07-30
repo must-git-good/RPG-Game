@@ -5,6 +5,9 @@
     margin:0;
     padding:0;
 }
+.hidethis{
+    visibility: hidden !important;
+}
 #overlay-body{
     opacity: .4;
     height: 900px;
@@ -13,6 +16,10 @@
     top: 0;
     left: 0;
     z-index: 10;
+}
+h1{
+    font-size: 50px;
+    color: white;
 }
 #body{
     /* background-image: url("../images/spooky_forest.jpg"); */
@@ -81,9 +88,7 @@ header{
 
 
 
-.hidethis{
-    visibility: hidden;
-}
+
 
 .trans{
     background-color: transparent;
@@ -93,6 +98,7 @@ header{
 .btn{
     background-color: black;
     color: white;
+    font-family: 'Kirang Haerang', cursive;
     font-weight: bold;
     padding: 15px;
     opacity: .6;
@@ -114,4 +120,16 @@ header{
     position: relative;
     top: -200px;
 
+}
+
+#btm-select-area{
+    position: relative;
+    top: 70%;
+    left: 40%;
+}
+
+#welcome_text{
+    background-color: black;
+    font-family: 'Kirang Haerang', cursive;
+    text-align: center;
 }
