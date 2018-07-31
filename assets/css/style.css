@@ -8,128 +8,99 @@
 .hidethis{
     visibility: hidden !important;
 }
+
 #overlay-body{
     opacity: .4;
     height: 900px;
     width: 1600px;
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
-    z-index: 10;
+    z-index: 11;
 }
 h1{
-    font-size: 50px;
+    font-size: 75px;
     color: white;
+    opacity: .8;
+}
+h3{
+    font-size: 40px;
+    color: darkgray;
+    opacity: .6;
 }
 #body{
     /* background-image: url("../images/spooky_forest.jpg"); */
     background-image: url("../images/spooky_forest.png");
     background-size: 1600px 900px;
+
     opacity: 1;
     background-repeat: none;
-    background-color: darkgray;
-}
-.container{
-    width: 100%;
-}
-header{
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    text-align: center;
-    color: #bbb;
-    font-weight: bold;
-    width: auto;
-    height: 100px;
-    opacity: 1;
-    background-image: url("../images/stone_header.png");
-}
-#game-explain{
-    opacity: 1;
-}
-#main-select-area, #main-attack-area, #main-defend-area, #btm-select-area, #btm-attack-area, #btm-defend-area {
-    width: 33.3%;
-    background-color: transparent;
-}
-#main-visual-area, #main-select-area, #main-attack-area, #main-defend-area{
-    height: 600px;
+    background-color: rgb(169, 169, 169);
 }
 .ghost-holder{
     position: absolute;
 }
 .ghost-body{
-    opacity: .7;
+    opacity: .5;
     height: 300px;
-    position: relative;
+    position: absolute;
     top: 500px;
     left: 250px;
-    z-index: 9;
+    z-index: 5;
 }
-.ghost-weap{
-    transform: rotate(20deg);
-    opacity:.9;
-    height: 150px;
-    position: relative;
-    top:70px;
-    left:130px;
-    z-index: 2;
+#ghost1{ 
+    
+    top: 200px;
+    left: 100px;
+    z-index: 5;
 }
-.ghost-shield{
-    opacity:.9;
-    height: 150px;
-    position: relative;
-    top:100px;
-    left:5px;
-    z-index: 3;
+#ghost2{
+   
+    top: 100px;
+    left: 400px;
+    z-index: 5;
 }
-
-
-/* #ghost1{
-    opacity: .5;
-} */
-
-
-
+#ghost3{
+    
+    top: 300px;
+    left: 700px;
+    z-index: 5;
+}
+#ghost4{  
+    top: 200px;
+    left: 1000px;
+    z-index: 5;
+}
 
 
 .trans{
     background-color: transparent;
 }
 
-
 .btn{
     background-color: black;
     color: white;
     font-family: 'Kirang Haerang', cursive;
+    font-size: 250%;
     font-weight: bold;
     padding: 15px;
     opacity: .6;
     border-style: none;
     float: center;
-    margin: 0px;
-}
-#btn-select-ghost{
-    background-color: black;
-    color: white;
-    font-weight: bold;
-    padding: 15px;
-    opacity: .6;
-    border-style: none;
-    float: center;
-    margin: 0px;
-}
-#StoneHead{
-    position: relative;
-    top: -200px;
-
+    margin: 5px 15px 5px 15px;
+    z-index: 15;
 }
 
 #btm-select-area{
-    position: relative;
+    position: absolute;
     top: 70%;
-    left: 40%;
 }
 
 #welcome_text{
     background-color: black;
     font-family: 'Kirang Haerang', cursive;
     text-align: center;
+    width: 100%;
+    position: absolute;
+    top: 30%;
 }
