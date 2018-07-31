@@ -7,12 +7,12 @@ var ghostBtn = $(".selectghostbtn");
 var happens = $(".body");
 var ghostFightBtn = $("#btn-fight");
 var newGameBtn = $("#btn-reset");
-var ghostSelected = $(".ghost-holder");
+var selectAllGhosts = $(".ghost-holder");
 
-var ghostOne = { name: "Red Ghost", attackPower: 8, startPower: 8, hitPoints: 100, counterAttack: 10, alive: true };
-var ghostTwo = { name: "Yellow Ghost", attackPower: 12, startPower: 12, hitPoints: 70, counterAttack: 5, alive: true };
-var ghostThree = { name: "Green Ghost", attackPower: 4, startPower: 4, hitPoints: 120, counterAttack: 15, alive: true };
-var ghostFour = { name: "White Ghost", attackPower: 6, startPower: 6, hitPoints: 200, counterAttack: 8, alive: true };    ///REWORK THE LOGIC BASED ON THIS ALIVE STATE.
+var ghostOne = { name: "White Ghost", attackPower: 8, startPower: 8, hitPoints: 100, counterAttack: 10, alive: true };
+var ghostTwo = { name: "Blue Ghost", attackPower: 12, startPower: 12, hitPoints: 70, counterAttack: 5, alive: true };
+var ghostThree = { name: "Purple Ghost", attackPower: 4, startPower: 4, hitPoints: 120, counterAttack: 15, alive: true };
+var ghostFour = { name: "Yellow Ghost", attackPower: 6, startPower: 6, hitPoints: 200, counterAttack: 8, alive: true };    ///REWORK THE LOGIC BASED ON THIS ALIVE STATE?
 
 var attackGhost = {};
 var defendGhost = {};
@@ -21,8 +21,9 @@ var appearGhost = {};
 var attackerAssigned = false;
 var defendersKilled = 0;
 var spookyTimer = 801;
-var openingDialogue = ["Welcome to our haunted forest.<br>", "The ghosts here are fighting for the right...<br>", "...to haunt YOU!<br>", "Choose a ghost to fight with...<br>", "...and then use your wits to take out his competition. Good luck!", "<return;>"];
+var openingDialogue = ["<h4>...hit any key to enter the forest...</h4>", "Welcome to our haunted forest.<br>", "The ghosts here are fighting for the right...<br>", "...to haunt YOU!<br>", "Choose a ghost to fight with...<br>", "...and then use your wits to take out his competition. Good luck!", "<return;>"];
 
+var setMood = new Audio("assets/audio/Forest_of_Fear.mp3");
 
 //DECLARE GLOBAL FUNCTIONS
 
@@ -43,23 +44,31 @@ function setSpookyTimer() {
 function assignAttackGhost() {
     if (currentClick === "g1") {
         attackGhost = ghostOne;
+        $("#ghost1").attr("style", "visibility: visible;");
     } else if (currentClick === "g2") {
         attackGhost = ghostTwo;
+        $("#ghost2").attr("style", "visibility: visible;");
     } else if (currentClick === "g3") {
         attackGhost = ghostThree;
+        $("#ghost3").attr("style", "visibility: visible;");
     } else if (currentClick === "g4") {
         attackGhost = ghostFour;
+        $("#ghost4").attr("style", "visibility: visible;");
     }
 };
 
 function assignDefendGhost() {
     if (currentClick === "g1") {
         defendGhost = ghostOne;
+        $("#ghost1").attr("style", "visibility: visible;");
     } else if (currentClick === "g2") {
+        $("#ghost2").attr("style", "visibility: visible;");
         defendGhost = ghostTwo;
     } else if (currentClick === "g3") {
+        $("#ghost3").attr("style", "visibility: visible;");
         defendGhost = ghostThree;
     } else if (currentClick === "g4") {
+        $("#ghost4").attr("style", "visibility: visible;");
         defendGhost = ghostFour;
     }
 };
@@ -67,12 +76,16 @@ function assignDefendGhost() {
 function assignAppearGhost() {
     if (currentClick === "g1") {
         appearGhostAttacker = ghostOne;
+        $(".ghost1").attr("style", "visibility: visible;");
     } else if (currentClick === "g2") {
         appearGhostAttacker = ghostTwo;
+        $(".ghost2").attr("style", "visibility: visible;");
     } else if (currentClick === "g3") {
         appearGhostAttacker = ghostThree;
+        $(".ghost3").attr("style", "visibility: visible;");
     } else if (currentClick === "g4") {
         appearGhostAttacker = ghostFour;
+        $(".ghost4").attr("style", "visibility: visible;");
     }
 
 
@@ -80,16 +93,18 @@ function assignAppearGhost() {
 
 function initializeGame() {
     //reset the variable values here to 'reset' the game.
-    ghostOne = { name: "Red Ghost", attackPower: 8, startPower: 8, hitPoints: 100, counterAttack: 10, alive: true };
-    ghostTwo = { name: "Yellow Ghost", attackPower: 12, startPower: 12, hitPoints: 70, counterAttack: 5, alive: true };
-    ghostThree = { name: "Green Ghost", attackPower: 4, startPower: 4, hitPoints: 120, counterAttack: 15, alive: true };
-    ghostFour = { name: "White Ghost", attackPower: 6, startPower: 6, hitPoints: 200, counterAttack: 10, alive: true };
+    ghostOne = { name: "White Ghost", attackPower: 8, startPower: 8, hitPoints: 100, counterAttack: 10, alive: true };
+    ghostTwo = { name: "Blue Ghost", attackPower: 12, startPower: 12, hitPoints: 70, counterAttack: 5, alive: true };
+    ghostThree = { name: "Purple Ghost", attackPower: 4, startPower: 4, hitPoints: 120, counterAttack: 15, alive: true };
+    ghostFour = { name: "Yellow Ghost", attackPower: 6, startPower: 6, hitPoints: 200, counterAttack: 10, alive: true };
     attackGhost = {};
     defendGhost = {};
     attackerAssigned = false;
     newGameBtn.attr("style", "visibility: hidden;");
     ghostFightBtn.attr("style", "visibility: hidden;");
     ghostBtn.attr("style", "visibility: visible;");
+    $(".ghost-body").attr("style", "visibility: hidden;");
+
     defendersKilled = 0;
 };
 
@@ -152,22 +167,23 @@ $(document).ready(function () {
                 assignAppearGhost();
                 console.log(appearGhostAttacker);
                 $("#welcome_text").html("Choose an attacker: <br><h3>" + appearGhostAttacker.name + " has " + appearGhostAttacker.attackPower + " attack power, and " + appearGhostAttacker.hitPoints + " hit points.");
-                $(".ghost-holder").attr("style", "visibility: visible;</h3>");
+                // $(".ghost-holder").attr("style", "visibility: visible;</h3>");
                 console.log(this);
             } else if (attackerAssigned === true) {
                 currentClick = $(this).val();
                 assignAppearGhost();
                 console.log(appearGhostAttacker);
                 $("#welcome_text").html("Choose a defender: <br><h3> " + appearGhostAttacker.name + " has " + appearGhostAttacker.hitPoints + " hit points, and " + appearGhostAttacker.counterAttack + " retaliation damage.</h3>");
-                $(".ghost-holder").attr("style", "visibility: visible;");
+                // $(".ghost-holder").attr("style", "visibility: visible;");
 
             }
         }, function () {
+            $(".ghost1").attr("style", "visibility: hidden;");
+            $(".ghost2").attr("style", "visibility: hidden;");
+            $(".ghost3").attr("style", "visibility: hidden;");
+            $(".ghost4").attr("style", "visibility: hidden;");
             $("#welcome_text").html("<return;>");
-            $(".ghost-holder").attr("style", "visibility: hidden;");
-
         }
-
     );
 
     ghostBtn.on("click", function () {
@@ -206,42 +222,21 @@ $(document).ready(function () {
     newGameBtn.on("click", function () {
         initializeGame();
         console.log("A new game has started");
-        //reset visual elements
+        
     });
-    //////////////////////////////////////////////////////////////////////////
-    console.log("TEXT AT STARTUP.")
-
-
-
-
-    //do other opening instructions
-    // setTimeout(function () {
-    //     document.querySelector("#welcome_text").textContent = "WELCOME TO OUR HAUNTED FOREST";
-    // }, spookyTimer+0);
-    // console.log("Welcome...")
-    // setSpookyTimer;
-    // setTimeout(function () {
-    //     document.querySelector("#welcome_text").textContent = "Here ghouls fight for the chance to haunt...";
-    // }, spookyTimer+0);
-    // console.log("Here the ghouls...")
-    // setSpookyTimer;
-    // setTimeout(function () {
-    //     document.querySelector("#welcome_text").textContent = "...you!";
-    // }, spookyTimer+0);
-
-
-
+    
+     
     function staggeredExecution(i) {
         setTimeout(function () {
             $("#welcome_text").html(openingDialogue[i]);
             $(".btn").attr("style", "visibility: hidden;");
-        }, i * 2000);
+        }, i * 2000);   
     }
     function similarTiming(j) {
         setTimeout(function () {
             $(".selectghostbtn").attr("style", "visibility: visible;");
         }, (openingDialogue.length-1) * 2001);
-    }
+    }                      
 
     for (var i = 0; i < openingDialogue.length; i++)
         staggeredExecution(i);
@@ -250,8 +245,10 @@ $(document).ready(function () {
         similarTiming(j);
 
 
-        
-        
+    
+ document.onkeyup = function(){
+     setMood.play();
+ }
 
 
 
@@ -292,3 +289,23 @@ $(document).ready(function () {
 });  // END OF MAIN SECTION
 
 
+
+
+/// Apply fades so things are less jarring?
+
+/// Get some theme music, we need mood!
+
+
+// document.onkeyup = function (input) {                                 // User hits a key
+
+//     userGuess = input.key.toLowerCase();                        // The key they press is defined as their guess.
+//             console.log(userGuess);
+//             console.log("-------^ The user has made a guess.")
+
+//     if (alphabet.includes(userGuess) !== true) {
+//         alert("Please pick a letter.");
+//         return;
+//     }
+
+
+// LOOK INTO ANIMATE AND .HIDE AND SUCH
