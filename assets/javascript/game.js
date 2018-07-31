@@ -104,7 +104,7 @@ function initializeGame() {
     ghostFightBtn.attr("style", "visibility: hidden;");
     ghostBtn.attr("style", "visibility: visible;");
     $(".ghost-body").attr("style", "visibility: hidden;");
-
+    $("#welcome_text").attr("style", "visibility: hidden");
     defendersKilled = 0;
 };
 
@@ -116,8 +116,19 @@ function assignDeathStatus() {
     } else if (defendGhost.hitPoints <= 0) {
         defendGhost.alive = false;
         console.log("Defend Ghost has died");
+    } else {
+        console.log("Both still alive. Keep fighting.")
     }
 };
+
+function checkWin() {
+    if ((attackGhost.alive === true) && (defendersKilled === 3)) {
+        alert("You win! Consider yourself haunted. Play again!");
+        console.log("Here's a new win condition attempt.")
+        return true;
+    }
+
+}
 
 function youLose() {
     if (attackGhost.alive === false) {
@@ -133,18 +144,33 @@ function nextContender() {
         return;
     }
     else if ((defendGhost.alive === false) && (defendersKilled < 3)) {
+        defendersKilled++;
         ghostFightBtn.attr("style", "visibility: hidden;");
         ghostBtn.attr("style", "visibility: visible;");
-        alert("Pick your next defender");
-        defendersKilled++;
+        alert("You've defeated an enemy ghost. Fight " + (3-defendersKilled) + " more.");
         attackerAssigned = true;
     }
-    else if ((defendGhost.alive === false) && (defendersKilled >= 3)) {
+    else if ((defendGhost.alive === false) && (defendersKilled === 3)) {
         newGameBtn.attr("style", "visibility: visible;");
         ghostFightBtn.attr("style", "visibility: hidden;");
-        alert("You win! Play again!");
+        alert("You win! Consider yourself haunted. Play again!");
     }
 };
+
+// function hideIfDead() {
+//     if (ghostOne.alive === false) {
+//         $(".ghost1").attr("style", "visibility: hidden;");
+//     } 
+//     if (ghostTwo.alive === false) {
+//         $(".ghost2").attr("style", "visibility: hidden;");
+//     }
+//     if (ghostThree.alive === false) {
+//         $(".ghost3").attr("style", "visibility: hidden;");
+//     }
+//     if (ghostFour.alive === false) {
+//         $(".ghost4").attr("style", "visibility: hidden;");
+//     }
+// };
 
 //CREATE MAIN GAME
 
@@ -202,53 +228,45 @@ $(document).ready(function () {
     });
 
     ghostFightBtn.on("click", function () {                        //on the click of a ghost selector button
-        console.log(attackGhost);
-        console.log(defendGhost);
-        console.log("Fight has activated");
-        console.log(this);
-        console.log($(this).val());
         ghostFight(attackGhost, defendGhost);
-
+        $("#welcome_text").html("<h4>"+ attackGhost.name +" hits for " + attackGhost.attackPower + " damage!<br>" + defendGhost.name + " counters for " +defendGhost.counterAttack + " damage!</h4>");
         console.log("Round has concluded. We should be able to just fight again.")
-        console.log(attackGhost, defendGhost);
         assignDeathStatus();
-        console.log(attackGhost, defendGhost);
+        checkWin();
+        // hideIfDead();
         youLose();
-        console.log(attackGhost, defendGhost);
         nextContender();
-        console.log(attackGhost, defendGhost);
+        checkWin();
     });
 
     newGameBtn.on("click", function () {
         initializeGame();
-        console.log("A new game has started");
-        
     });
-    
-     
+
+
     function staggeredExecution(i) {
         setTimeout(function () {
             $("#welcome_text").html(openingDialogue[i]);
             $(".btn").attr("style", "visibility: hidden;");
-        }, i * 2000);   
+        }, i * 2000);
     }
     function similarTiming(j) {
         setTimeout(function () {
             $(".selectghostbtn").attr("style", "visibility: visible;");
-        }, (openingDialogue.length-1) * 2001);
-    }                      
+        }, (openingDialogue.length - 1) * 2001);
+    }
 
     for (var i = 0; i < openingDialogue.length; i++)
         staggeredExecution(i);
-    
+
     for (var j = 0; j < openingDialogue.length; j++)
         similarTiming(j);
 
 
-    
- document.onkeyup = function(){
-     setMood.play();
- }
+
+    document.onkeyup = function () {
+        setMood.play();
+    }
 
 
 
