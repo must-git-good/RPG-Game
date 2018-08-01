@@ -13,38 +13,33 @@
         <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
                 crossorigin="anonymous"></script>
         <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous"> -->
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em"
-                crossorigin="anonymous"></script>
+        <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em"
+                crossorigin="anonymous"></script> -->
         <title>Game: Graveyard Ghosts</title>
 </head>
 
-<body id="body">
-
-        
-
-        
+<body id="body" style="background-color: black">
                 <div>
                         <h1 id="welcome_text"> </h1>
                 </div>
                 <div class="ghost-holder ghost1" value="G1">
-                        <img id="ghost1" class="ghost-body" src="assets/images/Ghosts/Classic Ghost.png">
+                        <img id="ghost1" class="ghost-body ghost_1" src="assets/images/Ghosts/Classic Ghost.png">
                 </div>
                 <div class="ghost-holder ghost2" value="G2">
-                        <img id="ghost2" class="ghost-body" src="assets/images/Ghosts/Blue Ghost.png">
+                        <img id="ghost2" class="ghost-body ghost_2" src="assets/images/Ghosts/Blue Ghost.png">
                 </div>
                 <div class="ghost-holder ghost3" value="G3">
-                        <img id="ghost3" class="ghost-body" src="assets/images/Ghosts/Purple Ghost.png">
+                        <img id="ghost3" class="ghost-body ghost_3" src="assets/images/Ghosts/Purple Ghost.png">
                 </div>
                 <div class="ghost-holder ghost4" value="G4">
-                        <img id="ghost4" class="ghost-body" src="assets/images/Ghosts/Yellow Ghost.png">
+                        <img id="ghost4" class="ghost-body ghost_4" src="assets/images/Ghosts/Yellow Ghost.png">
                 </div>
-
        
                 <div id="btm-select-area">
-                        <button type="button" class="btn btn-light selectghostbtn" id="btn-select-ghost" value="g1">Ghost 1</button>
-                        <button type="button" class="btn btn-light selectghostbtn" id="btn-select-ghost" value="g2">Ghost 2</button>
-                        <button type="button" class="btn btn-light selectghostbtn" id="btn-select-ghost" value="g3">Ghost 3</button>
-                        <button type="button" class="btn btn-light selectghostbtn" id="btn-select-ghost" value="g4">Ghost 4</button>
+                        <button type="button" class="btn btn-light selectghostbtn clsi1" id="btn-select-ghost" value="g1" style="visibility: hidden">White Spectre</button>
+                        <button type="button" class="btn btn-light selectghostbtn clsi2" id="btn-select-ghost" value="g2" style="visibility: hidden">Blue Baron </button>
+                        <button type="button" class="btn btn-light selectghostbtn clsi3" id="btn-select-ghost" value="g3" style="visibility: hidden">Violent Violet</button>
+                        <button type="button" class="btn btn-light selectghostbtn clsi4" id="btn-select-ghost" value="g4" style="visibility: hidden">Yellow Bellower</button>
                         <button type="button" class="btn btn-light" id="btn-fight">Fight</button>
                         <button type="button" class="btn btn-light Attack" id="btn-reset">New Fight</button>
                 </div>
@@ -53,9 +48,6 @@
                         <img id="overlay-body" src= "assets/images/spooky_forest.png">
                 </div> -->
 
-        
-        
         <script src="assets/javascript/game.js"></script>
 </body>
-
 </html>

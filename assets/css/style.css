@@ -22,6 +22,7 @@ h1{
     font-size: 75px;
     color: white;
     opacity: .8;
+    z-index: 50;
 }
 h3{
     font-size: 40px;
@@ -34,13 +35,13 @@ h4{
     background-color: transparent;
 }
 #body{
-    /* background-image: url("../images/spooky_forest.jpg"); */
-    background-image: url("../images/spooky_forest.png");
+    background-image: url("../images/spooky_forest.png"), url("../images/bg_l.gif");
     background-size: 1600px 900px;
 
     opacity: 1;
     background-repeat: none;
     background-color: rgb(169, 169, 169);
+    /* background-color: black; */
 }
 .ghost-holder{
     position: absolute;
@@ -91,6 +92,7 @@ h4{
     padding: 15px;
     opacity: .6;
     border-style: none;
+    border: 0;
     float: center;
     margin: 5px 15px 5px 15px;
     z-index: 15;
