@@ -1,4 +1,4 @@
-<!-- RPG GAME -->
+<!-- PROJECT TITLE -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -9,45 +9,123 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
         <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-        <link href="https://fonts.googleapis.com/css?family=Kirang+Haerang" rel="stylesheet">
+        <!-- <link href="https://fonts.googleapis.com/css?family=Kirang+Haerang" rel="stylesheet"> -->
+
         <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
                 crossorigin="anonymous"></script>
-        <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous"> -->
-        <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em"
-                crossorigin="anonymous"></script> -->
-        <title>Game: Graveyard Ghosts</title>
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B"
+                crossorigin="anonymous">
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em"
+                crossorigin="anonymous"></script>
+
+
+        <title>A Gif Viewer</title>
 </head>
 
-<body id="body" style="background-color: black">
-                <div>
-                        <h1 id="welcome_text"> </h1>
-                </div>
-                <div class="ghost-holder ghost1" value="G1">
-                        <img id="ghost1" class="ghost-body ghost_1" src="assets/images/Ghosts/Classic Ghost.png">
-                </div>
-                <div class="ghost-holder ghost2" value="G2">
-                        <img id="ghost2" class="ghost-body ghost_2" src="assets/images/Ghosts/Blue Ghost.png">
-                </div>
-                <div class="ghost-holder ghost3" value="G3">
-                        <img id="ghost3" class="ghost-body ghost_3" src="assets/images/Ghosts/Purple Ghost.png">
-                </div>
-                <div class="ghost-holder ghost4" value="G4">
-                        <img id="ghost4" class="ghost-body ghost_4" src="assets/images/Ghosts/Yellow Ghost.png">
-                </div>
-       
-                <div id="btm-select-area">
-                        <button type="button" class="btn btn-light selectghostbtn clsi1" id="btn-select-ghost" value="g1" style="visibility: hidden">White Spectre</button>
-                        <button type="button" class="btn btn-light selectghostbtn clsi2" id="btn-select-ghost" value="g2" style="visibility: hidden">Blue Baron </button>
-                        <button type="button" class="btn btn-light selectghostbtn clsi3" id="btn-select-ghost" value="g3" style="visibility: hidden">Violent Violet</button>
-                        <button type="button" class="btn btn-light selectghostbtn clsi4" id="btn-select-ghost" value="g4" style="visibility: hidden">Yellow Bellower</button>
-                        <button type="button" class="btn btn-light" id="btn-fight">Fight</button>
-                        <button type="button" class="btn btn-light Attack" id="btn-reset">New Fight</button>
-                </div>
+<body>
+        <div class="container">
 
-                <!-- <div>
-                        <img id="overlay-body" src= "assets/images/spooky_forest.png">
-                </div> -->
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                        <a class="navbar-brand" href="#">Gif Viewer</a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                        </button>
 
-        <script src="assets/javascript/game.js"></script>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                <ul class="navbar-nav ml-auto">
+                                        
+                
+                                        <li class="nav-item dropdown">
+                                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                                                        aria-expanded="false">
+                                                        Do more...
+                                                </a>
+                                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                                        <a class="dropdown-item" href="#">Reset</a>
+                                                        <a class="dropdown-item" href="#">Recommended Results</a>
+                                                        <div class="dropdown-divider"></div>
+                                                        <a class="dropdown-item" href="#">See who made it...</a>
+                                                </div>
+                                        </li>
+                                        
+                                </ul>
+                                
+                        </div>
+                </nav>
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                        aria-expanded="false" aria-label="Toggle navigation">
+                                        <span class="navbar-toggler-icon"></span>
+                                </button>
+        
+                                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                        <ul class="navbar-nav mr-auto">
+                                                <li class="nav-item active">
+                                                        <a class="nav-link" href="#">Reset
+                                                                <span class="sr-only">(current)</span>
+                                                        </a>
+                                                </li>
+                                                <li class="nav-item">
+                                                        <a class="nav-link" href="#">Link</a>
+                                                </li>
+                                                <div class="form-check form-check-inline">
+                                                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                                                <label class="form-check-label" for="inlineRadio1">1</label>
+                                                              </div>
+                                                              <div class="form-check form-check-inline">
+                                                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                                                                <label class="form-check-label" for="inlineRadio2">2</label>
+                                                              </div>
+                                                                  
+                                                
+                                        </ul>
+                                        <form class="form-inline my-2 my-lg-0 mr-3">
+                                                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                                                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                                        </form>
+                                        <form class="form-inline my-2 my-lg-0">
+                                                        <input class="form-control mr-sm-2" type="search" placeholder="Find a .gif!" aria-label="Search">
+                                                        <button class="btn btn-outline-success my-2 my-sm-0" id="search-results" type="submit">Search</button>
+                                        </form
+                                </div>
+                        </nav>
+                        <div class="accordion" id="accordionHolder">
+                                        <div class="card">
+                                          <div class="card-header" id="headingOne">
+                                            <h5 class="mb-0">
+                                              <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                 Words
+                                              </button>
+                                            </h5>
+                                          </div>
+                                      
+                                          <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionHolder">
+                                            <div class="card-body">
+                                                        <div class="gif-content" id="gif-">
+
+                                                                </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                       
+                                          <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                                            <div class="card-body">
+                                              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+        </div>
+
+
+
+
+
+
+        <script src="assets/javascript/script.js"></script>
+
 </body>
+
 </html>
